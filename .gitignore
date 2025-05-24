@@ -1,0 +1,6 @@
+touch .gitignore
+echo "node_modules/" >> .gitignore
+echo "target/" >> .gitignore
+echo "dist/" >> .gitignore
+echo ".idea/" >> .gitignore
+echo ".vscode/" >> .gitignore

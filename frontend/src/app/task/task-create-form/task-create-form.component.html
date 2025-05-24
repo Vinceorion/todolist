@@ -1,0 +1,62 @@
+<h1>Création d'une tache</h1>
+<!--<<<<<< Reactive form  >>>>>>-->
+<div class="container">
+<mat-card>
+  <mat-card-header>
+    <h2>Reactive Form</h2>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <mat-form-field class="example-full-width">
+          <mat-label>Titre:</mat-label>
+          <input matInput type="text" formControlName="title">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+          <mat-label>Description:</mat-label>
+          <textarea matInput type="desc" formControlName="description"></textarea>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+          <mat-label>Date d'échéance</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="dueDate" >
+          <!--<mat-hint>MM/DD/YYYY</mat-hint>-->
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        
+      <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid" >Créer</button>
+      <app-reset-button #resetButton  [formB]="form" resetDirective></app-reset-button>
+    </form>
+  </mat-card-content>
+</mat-card>
+  <!--<<<<< Tempate form >>>>>> -->
+  <mat-card>
+    <mat-card-header>
+      <h2>Template Form</h2>
+    </mat-card-header>
+    <mat-card-content>
+      <form (ngSubmit)="onTplSubmit(tplForm)" #tplForm="ngForm">
+        <mat-form-field class="example-full-width">
+          <mat-label>Titre:</mat-label>
+          <input matInput type="text" name="title" ngModel required>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+          <mat-label>Description:</mat-label>
+          <textarea matInput type="desc" name="description" ngModel required></textarea>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+          <mat-label>Date d'échéance</mat-label>
+          <input matInput [matDatepicker]="picker2" name="dueDate" ngModel required>
+          <!--<mat-hint>MM/DD/YYYY</mat-hint>-->
+          <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit" [disabled]="tplForm.invalid">Créer</button>
+        <app-reset-button #resetButton  [formB]="tplForm" resetDirective></app-reset-button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

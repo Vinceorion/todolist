@@ -1,0 +1,37 @@
+<mat-toolbar color="primary" >
+    <div>
+      <button mat-button routerLink="" routerLinkActive="active-link">
+        <mat-icon>home</mat-icon>Home</button>
+    </div>
+    <div>
+      <button mat-button routerLink="create" routerLinkActive="active-link">
+        <mat-icon>edit_square
+        </mat-icon>
+        Create Task
+      </button>
+    </div>
+    <div>
+      <button mat-button routerLink="update" routerLinkActive="active-link">
+        <mat-icon>update
+        </mat-icon>
+        Update Task
+      </button>
+    </div>
+    <div>
+      <button mat-button routerLink="delete" routerLinkActive="active-link">
+        <mat-icon>delete
+        </mat-icon>
+        Delete Task
+      </button>
+    </div>
+    @if(isLoggedIn()){
+      <div>
+      <button mat-button (click)="logout()" >
+        <mat-icon>logout
+        </mat-icon>
+        Disconnect
+      </button>
+    </div>
+    }
+    
+</mat-toolbar>

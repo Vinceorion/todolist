@@ -1,0 +1,23 @@
+<mat-card>
+    <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+        <mat-form-field appearance="outline">
+            <mat-label>Nom</mat-label>
+            <input matInput formControlName="lastName" type="text" required />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Prénom</mat-label>
+            <input matInput formControlName="firstName" type="text" required />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" type="email" required />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Mot de passe</mat-label>
+            <input matInput formControlName="password" type="password" required />
+        </mat-form-field>
+        <div>
+            <button mat-raised-button color="primary" [disabled]="registerForm.invalid" type="submit">Enregistrer</button>
+        </div>
+    </form>
+</mat-card>
